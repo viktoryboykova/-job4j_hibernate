@@ -19,5 +19,9 @@
 
         <mapping class="ru.job4j.model.CarModel" />
         <mapping class="ru.job4j.model.CarBrand" />
+        <mapping class="ru.job4j.model.Person" />
+        <mapping class="ru.job4j.model.Address" />
+        <mapping class="ru.job4j.model.Author" />
+        <mapping class="ru.job4j.model.Book" />
     </session-factory>
 </hibernate-configuration>

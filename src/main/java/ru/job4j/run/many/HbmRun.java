@@ -1,12 +1,14 @@
-package ru.job4j.run;
+package ru.job4j.run.many;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import ru.job4j.model.Address;
 import ru.job4j.model.CarBrand;
 import ru.job4j.model.CarModel;
+import ru.job4j.model.Person;
 
 public class HbmRun {
 
