@@ -1,26 +1,21 @@
-package ru.job4j.model;
+package ru.job4j.model.manytomany;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "authors")
-public class Author {
+@Table(name = "books")
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Set<Book> books = new HashSet<>();
-
-    public static Author of(String name) {
-        Author author = new Author();
-        author.name = name;
-        return author;
+    public static Book of(String name) {
+        Book book = new Book();
+        book.name = name;
+        return book;
     }
 
     public int getId() {
@@ -39,14 +34,6 @@ public class Author {
         this.name = name;
     }
 
-    public Set<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -55,8 +42,8 @@ public class Author {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Author author = (Author) o;
-        return id == author.id;
+        Book book = (Book) o;
+        return id == book.id;
     }
 
     @Override
