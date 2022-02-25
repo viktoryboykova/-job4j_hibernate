@@ -27,5 +27,8 @@
         <mapping class="ru.job4j.model.manytomany.Book" />
         <mapping class="ru.job4j.model.lazy.Task" />
         <mapping class="ru.job4j.model.lazy.Category" />
+        <mapping class="ru.job4j.model.manytomany.Human" />
+        <mapping class="ru.job4j.model.manytomany.City" />
+        <mapping class="ru.job4j.date.Product" />
     </session-factory>
 </hibernate-configuration>
