@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>HumanServlet</servlet-name>
+    <servlet-class>ru.job4j.servlet.manytomany.HumanServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HumanServlet</servlet-name>
+    <url-pattern>/humans</url-pattern>
+  </servlet-mapping>
 </web-app>
