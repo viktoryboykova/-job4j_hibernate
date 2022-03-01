@@ -30,5 +30,7 @@
         <mapping class="ru.job4j.model.manytomany.Human" />
         <mapping class="ru.job4j.model.manytomany.City" />
         <mapping class="ru.job4j.date.Product" />
+        <mapping class="ru.job4j.hql.Student" />
+        <mapping class="ru.job4j.hql.Candidate" />
     </session-factory>
 </hibernate-configuration>
