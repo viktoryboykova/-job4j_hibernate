@@ -7,8 +7,12 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 
+import java.util.List;
+
 public class HqlRun {
     public static void main(String[] args) {
+        List<Candidate> rsl = null;
+
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure().build();
         try {
@@ -48,13 +52,27 @@ public class HqlRun {
 //            Query query = session.createQuery("from Candidate s where s.id = 3");
 //            System.out.println(query.uniqueResult());
 
-            session.createQuery("delete from Candidate where id = :fId")
-                    .setParameter("fId", 3)
-                    .executeUpdate();
-            Query query = session.createQuery("from Candidate ");
-            for (Object st : query.list()) {
-                System.out.println(st);
-            }
+//            session.createQuery("delete from Candidate where id = :fId")
+//                    .setParameter("fId", 3)
+//                    .executeUpdate();
+//            Query query = session.createQuery("from Candidate ");
+//            for (Object st : query.list()) {
+//                System.out.println(st);
+//            }
+
+//            Post post = new Post("Ищу IT-специалиста", "Опыт работы не требуется, обучим");
+//            session.save(post);
+//            PostsDatabase postsDatabase = new PostsDatabase("hh.ru");
+//            postsDatabase.addPost(post);
+//            session.save(postsDatabase);
+//            Candidate candidate = new Candidate("Vika", 0, 50000, postsDatabase);
+//            session.save(candidate);
+
+            rsl = session.createQuery(
+                    "select distinct can from Candidate can "
+                            + "join fetch can.postsDatabase pd "
+                            + "join fetch pd.posts p ", Candidate.class
+            ).list();
 
             session.getTransaction().commit();
             session.close();
@@ -62,6 +80,9 @@ public class HqlRun {
             e.printStackTrace();
         } finally {
             StandardServiceRegistryBuilder.destroy(registry);
+        }
+        for (Candidate can : rsl) {
+            System.out.println(can);
         }
     }
 }

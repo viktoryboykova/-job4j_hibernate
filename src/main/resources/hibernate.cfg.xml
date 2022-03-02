@@ -32,5 +32,9 @@
         <mapping class="ru.job4j.date.Product" />
         <mapping class="ru.job4j.hql.Student" />
         <mapping class="ru.job4j.hql.Candidate" />
+        <mapping class="ru.job4j.hql.Account" />
+        <mapping class="ru.job4j.hql.FetchBook" />
+        <mapping class="ru.job4j.hql.PostsDatabase" />
+        <mapping class="ru.job4j.hql.Post" />
     </session-factory>
 </hibernate-configuration>
